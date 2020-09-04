@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+
+public class MyClass
+{
+
+static int calcAngle(double a, double b)
+{
+if (a == 12)
+a = 0;
+if (b == 60)
+{
+b = 0;
+a += 1;
+if(a>12)
+a = a-12;
+}
+
+
+int aangle = (int)(0.5 * (a*60 + b));
+int bangle = (int)(6*b);
+int angle = Math.abs(aangle - bangle);
+angle = Math.min(360-angle, angle);
+
+return angle;
+}
+
+public static void main (String[] args)
+{
+   Scanner sc=new Scanner(System.in);
+   
+   System.out.println("Time: ");
+   String arr[]=sc.next().split(":");
+   int j=Integer.parseInt(arr[0]);
+   int k=Integer.parseInt(arr[1]);
+   
+System.out.println(calcAngle(j, k)+" degree");
+}
+}
